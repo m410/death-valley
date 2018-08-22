@@ -1,7 +1,5 @@
 package org.m410.deathvalley;
 
-import org.springframework.stereotype.Service;
-
 import javax.validation.constraints.*;
 import java.lang.annotation.Annotation;
 import java.util.Arrays;
@@ -9,7 +7,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-@Service
+/**
+ * 
+ */
 public class ValidationInfoServiceImpl implements ValidationInfoService {
     private final Set<EntityConstraints> set = new CopyOnWriteArraySet<>();
     private final Set<ConstraintBuilder<?>> constraintBuilders = Set.of(
