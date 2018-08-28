@@ -15,7 +15,7 @@ class ValidationInfoServiceImplTest {
         ValidationInfoService validationInfoService = new ValidationInfoServiceImpl();
         EntityConstraints entityConstraints = validationInfoService.forClass(Bank.class);
         assertNotNull(entityConstraints);
-        assertEquals(10, entityConstraints.getFields().size());
+        assertEquals(6, entityConstraints.getFields().size());
         Optional<FieldConstraints> name = entityConstraints.getFields().stream()
                 .filter(fieldConstraints -> fieldConstraints.getName().equals("name"))
                 .findFirst();

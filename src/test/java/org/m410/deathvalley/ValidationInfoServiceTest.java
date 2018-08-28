@@ -12,6 +12,6 @@ class ValidationInfoServiceTest {
         ValidationInfoService service = new ValidationInfoServiceImpl();
         EntityConstraints result = service.forClass(Bank.class);
         assertNotNull(result);
-        assertEquals(10, result.getFields().size());
+        assertEquals(6, result.getFields().size());
     }
 }

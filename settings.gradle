@@ -8,3 +8,5 @@
  */
 
 rootProject.name = 'deathvalley'
+enableFeaturePreview('STABLE_PUBLISHING')
+
