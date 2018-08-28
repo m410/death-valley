@@ -116,6 +116,46 @@
           }
         }
       }
+    },
+    "ng-death-valley": {
+      "root": "projects/ng-death-valley",
+      "sourceRoot": "projects/ng-death-valley/src",
+      "projectType": "library",
+      "prefix": "dv",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-death-valley/tsconfig.lib.json",
+            "project": "projects/ng-death-valley/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ng-death-valley/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-death-valley/src/test.ts",
+            "tsConfig": "projects/ng-death-valley/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-death-valley/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-death-valley/tsconfig.lib.json",
+              "projects/ng-death-valley/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-death-valley-app"

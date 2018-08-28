@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DeathValleyService} from "ng-death-valley";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(
+    private deathValleyService: DeathValleyService
+  ) {
+    console.log(`I got it: ${this.deathValleyService}`)
+  }
 }
