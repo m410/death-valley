@@ -1,14 +1,18 @@
-package org.m410.deathvalley;
+package us.m410.deathvalley;
 
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import javax.persistence.*;
+import javax.persistence.Cacheable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Collection;
 
 @Entity
 @Cacheable

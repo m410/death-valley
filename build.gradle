@@ -1,15 +1,15 @@
 
 plugins {
     id 'java-library'
+    id 'maven-publish'
+    id 'signing'
 }
 
-apply plugin: 'java'
-apply plugin: 'maven-publish'
 
 version = '1.0.0-SNAPSHOT'
-group = 'org.m410.deathvalley'
+group = 'us.m410.deathvalley'
 
-sourceCompatibility = 10
+sourceCompatibility = 1.8
 defaultTasks 'build'
 description 'Death Valley'
 
@@ -33,4 +33,68 @@ test {
     useJUnitPlatform {
         excludeEngines 'junit-vintage'
     }
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar) {
+    from javadoc
+    classifier = 'javadoc'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'death-valley'
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            pom {
+                name = 'Death Valley'
+                description = 'Java server-side counterpart to ng-death-valley angular library to perform form validation.'
+                url = 'https://github.com/m410/death-valley'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'michaelfortin'
+                        name = 'Michael Fortin'
+                        email = 'michael410@pm.me'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/m410/death-valley.git'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = "$buildDir/repos/releases"
+            def snapshotsRepoUrl = "$buildDir/repos/snapshots"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html4', true)
+    }
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
 }

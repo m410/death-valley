@@ -2,4 +2,4 @@
 /*
  * Should be broken out into it's own library.
  */
-package org.m410.deathvalley;
+package us.m410.deathvalley;

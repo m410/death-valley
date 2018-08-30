@@ -1,4 +1,4 @@
-package org.m410.deathvalley;
+package us.m410.deathvalley;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 

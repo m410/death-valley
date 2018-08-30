@@ -1,8 +1,7 @@
-package org.m410.deathvalley;
+package us.m410.deathvalley;
 
 import javax.validation.constraints.*;
 import java.lang.annotation.Annotation;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;

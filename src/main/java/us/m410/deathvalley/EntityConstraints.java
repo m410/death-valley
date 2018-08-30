@@ -1,4 +1,4 @@
-package org.m410.deathvalley;
+package us.m410.deathvalley;
 
 import java.util.Objects;
 import java.util.Set;
