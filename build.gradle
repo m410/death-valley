@@ -2,7 +2,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'signing'
+    id 'idea'
 }
 
 
@@ -12,6 +12,12 @@ group = 'us.m410.deathvalley'
 sourceCompatibility = 1.8
 defaultTasks 'build'
 description 'Death Valley'
+idea.module.inheritOutputDirs = false
+idea.module.outputDir = sourceSets.main.output.classesDir
+idea.module.testOutputDir = sourceSets.test.output.classesDir
+sourceSets.main.output.classesDir = new File(buildDir, "classes/main")
+sourceSets.test.output.classesDir = new File(buildDir, "classes/test")
+
 
 repositories {
     mavenCentral()
@@ -82,10 +88,6 @@ publishing {
             url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
         }
     }
-}
-
-signing {
-    sign publishing.publications.mavenJava
 }
 
 javadoc {
