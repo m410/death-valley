@@ -1,6 +1,8 @@
-# NgDeathValleyApp
+# ng-death-valley, DRY from validation with java server-side annotations
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+
+TODO finish description...
 
 ## Development server
 
