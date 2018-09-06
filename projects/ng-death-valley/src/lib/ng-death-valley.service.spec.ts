@@ -1,42 +1,35 @@
-import { TestBed, inject } from '@angular/core/testing';
-
-import { DeathValleyService } from './deathvalley.service';
 import {inject, TestBed} from '@angular/core/testing';
 
-import {DeathValleyService, EntityConstraints, FieldConstraints} from './bean-validator.service';
-import {HttpClient} from '@angular/common/http';
+import {BeanValidatorService, EntityConstraints, FieldConstraints} from './ng-death-valley.service';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {of} from 'rxjs';
 
-class MockHttpClient {
-  get(uri: string) {
-    return of({
-      className: 'com.some.Clazz',
-      fields: [{
-        name: 'name',
-        constraints: [{name: 'NotBlank', message: 'Cannot be blank'}]
-      }]
-    } as EntityConstraints);
-  }
+function makeResponse() {
+  return of({
+    className: 'com.some.Clazz',
+    fields: [{
+      name: 'name',
+      constraints: [{name: 'NotBlank', message: 'Cannot be blank'}]
+    }]
+  } as EntityConstraints);
 }
 
-describe('DeathValleyService', () => {
+describe('BeanValidatorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        DeathValleyService,
-        FormBuilder,
-        {provide: HttpClient, useClass: MockHttpClient}
+        BeanValidatorService,
+        FormBuilder
       ]
     });
   });
 
-  it('should be created', inject([DeathValleyService], service => {
+  it('should be created', inject([BeanValidatorService], service => {
     expect(service).toBeTruthy();
   }));
 
-  it('should find validator', inject([DeathValleyService], service => {
-    const builder = service.builder('anywhere');
+  it('should find validator', inject([BeanValidatorService], service => {
+    const builder = service.builder(makeResponse());
     expect(builder).toBeTruthy();
     let callForm = null;
     let callConstraint = null;
@@ -53,28 +46,28 @@ describe('DeathValleyService', () => {
     expect(callConstraint).toBeTruthy();
   }));
 
-  it('should pass NotBlank check', inject([DeathValleyService], service => {
+  it('should pass NotBlank check', inject([BeanValidatorService], service => {
     const form = new FormGroup({name: new FormControl()});
-    service.builder('/api/someurl').applyTo(form);
+    service.builder(makeResponse()).applyTo(form);
     form.setValue({name: 'value'});
     expect(form.controls['name'].valid).toBeTruthy();
     expect(form.valid).toBeTruthy();
   }));
 
-  it('should fail NotBlank validation', inject([DeathValleyService], service => {
+  it('should fail NotBlank validation', inject([BeanValidatorService], service => {
     const form = new FormGroup({name: new FormControl('')});
-    service.builder('/api/someurl').applyTo(form);
+    service.builder(makeResponse()).applyTo(form);
     form.controls['name'].setValue(null);
     expect(form.controls['name'].valid).toBeFalsy();
     expect(form.valid).toBeFalsy();
     expect(form.controls['name'].errors['notBlank'].message).toBe('Cannot be blank');
   }));
 
-  it('should make NotBlank validator', inject([DeathValleyService], service => {
+  it('should make NotBlank validator', inject([BeanValidatorService], service => {
     const factory = service.constraintFactories.find(fac => fac.name === 'NotBlank');
     expect(factory).toBeTruthy();
 
-    const validationFn = factory.make({name: 'NotBlank', message: 'Can not be null'});
+    const validationFn = factory.make({name: 'NotBlank', message: 'Can not be Blank'});
     expect(validationFn).toBeTruthy();
 
     const validationResult = validationFn(new FormControl());
@@ -84,7 +77,7 @@ describe('DeathValleyService', () => {
     expect(validationResult2).toBeFalsy(); // no error
   }));
 
-  it('should make Size validator', inject([DeathValleyService], service => {
+  it('should make Size validator', inject([BeanValidatorService], service => {
     const factory = service.constraintFactories.find(fac => fac.name === 'Size');
     expect(factory).toBeTruthy();
 
@@ -101,7 +94,7 @@ describe('DeathValleyService', () => {
     expect(validationResult3).toBeTruthy(); // has error
   }));
 
-  it('should make Past validator', inject([DeathValleyService], service => {
+  it('should make Past validator', inject([BeanValidatorService], service => {
     const factory = service.constraintFactories.find(fac => fac.name === 'Past');
     expect(factory).toBeTruthy();
 
@@ -115,7 +108,7 @@ describe('DeathValleyService', () => {
     expect(validationResult2).toBeFalsy(); // no error
   }));
 
-  it('should make Future validator', inject([DeathValleyService], service => {
+  it('should make Future validator', inject([BeanValidatorService], service => {
     const factory = service.constraintFactories.find(fac => fac.name === 'Future');
     expect(factory).toBeTruthy();
 
@@ -129,7 +122,7 @@ describe('DeathValleyService', () => {
     expect(validationResult2).toBeFalsy();
   }));
 
-  it('should make Pattern validator', inject([DeathValleyService], service => {
+  it('should make Pattern validator', inject([BeanValidatorService], service => {
     const factory = service.constraintFactories.find(fac => fac.name === 'Pattern');
     expect(factory).toBeTruthy();
 
@@ -146,7 +139,7 @@ describe('DeathValleyService', () => {
     expect(validationResult3).toBeFalsy(); // no error
   }));
 
-  it('should make Email validator', inject([DeathValleyService], service => {
+  it('should make Email validator', inject([BeanValidatorService], service => {
     const factory = service.constraintFactories.find(fac => fac.name === 'Email');
     expect(factory).toBeTruthy();
 
@@ -160,7 +153,7 @@ describe('DeathValleyService', () => {
     expect(validationResult2).toBeFalsy(); // no error
   }));
 
-  it('should make Digits validator', inject([DeathValleyService], service => {
+  it('should make Digits validator', inject([BeanValidatorService], service => {
     const factory = service.constraintFactories.find(fac => fac.name === 'Digits');
     expect(factory).toBeTruthy();
 
