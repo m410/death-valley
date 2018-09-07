@@ -74,7 +74,7 @@ export interface Constraint {
 
 
 @Injectable()
-export class BeanValidatorService {
+export class DeathValleyService {
   constraintFactories = JAVAX_CONSTRAINT_FACTORIES;
 
   builder(data: Observable<EntityConstraints>) {

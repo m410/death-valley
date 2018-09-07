@@ -1,6 +1,6 @@
 import {AbstractControl} from '@angular/forms';
-import * as moment from 'moment';
-import {Constraint, FormControlConstraintFactory} from './bean-validator.service';
+import  moment from 'moment-es6';
+import {Constraint, FormControlConstraintFactory} from './ng-death-valley.service';
 
 
 export class NotNullConstraint implements FormControlConstraintFactory {
