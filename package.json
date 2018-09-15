@@ -1,6 +1,20 @@
 {
   "name": "ng-death-valley-app",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "decription":"Client side validation service for javax.validation serverside annotations.",
+  "keywords":[
+    "form validation",
+    "death valley",
+    "javax.validation"
+  ],
+  "homepage":"https://gitlab.com/m410/ng-death-valley",
+  "bugs":"https://gitlab.com/m410/ng-death-valley/issues",
+  "license":"Apache-2.0",
+  "author":"Michael Fortin <michael410@pm.me>",
+  "repository": {
+    "type" : "git",
+    "url" : "git@gitlab.com:m410/ng-death-valley.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -12,8 +26,6 @@
     "npm_pack": "cd dist/ng-death-valley && npm pack",
     "package": "npm run build_lib && npm run npm_pack"
   },
-  "private": true,
-  "license" : "SEE LICENSE IN LICENSE",
   "dependencies": {
     "@angular/animations": "^6.0.0",
     "@angular/common": "^6.0.0",

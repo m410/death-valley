@@ -10,13 +10,10 @@ cache:
 #stages:
 #- test
 
-job test:
-  stage: test
-  script: npm test
+job build:
+  stage: build
+  script: npm run package
 
-job lint:
-  stage: test
-  script: npm run lint
 
 
 #publish:
