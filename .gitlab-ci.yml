@@ -1,0 +1,13 @@
+image: gradle:4.10.1-jdk10-slim
+
+before_script:
+- gradle clean
+
+cache:
+  paths:
+  - .gradle/
+
+job_build:
+  stage: test
+  script: gradle build
+
