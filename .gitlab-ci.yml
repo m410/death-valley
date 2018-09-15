@@ -7,21 +7,20 @@ cache:
   paths:
   - node_modules/
 
-#stages:
-#- test
+test:lint:
+  script:
+  - npm run lint
 
-job build:
-  stage: build
-  script: npm run package
+test:test:
+  script:
+  - npm run test --watch false
 
-
-
-#publish:
-#  stage: deploy
-#  only:
-#  - tags
-#  - triggers
-#  script:
-#  - npm run build
-#  - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
-#  - npm publish
+publish:
+  stage: deploy
+  only:
+  - tags
+  - triggers
+  script:
+  - npm run package
+  - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+  - npm publish dist/ng-death-valley
