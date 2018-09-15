@@ -13,6 +13,7 @@
     "package": "npm run build_lib && npm run npm_pack"
   },
   "private": true,
+  "license" : "SEE LICENSE IN LICENSE",
   "dependencies": {
     "@angular/animations": "^6.0.0",
     "@angular/common": "^6.0.0",
