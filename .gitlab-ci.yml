@@ -1,0 +1,18 @@
+image: gradle:4.10.1-jre10-slim
+
+cache:
+  paths:
+  - .gradle/
+
+stages:
+- test
+- build
+
+job_test:
+  stage: test
+  script: ./gradlew test
+
+job_build:
+  stage: build
+  script: ./gradlew build -x test
+
