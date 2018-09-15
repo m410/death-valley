@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {DeathValleyService} from "ng-death-valley";
+import {DeathValleyService} from 'ng-death-valley';
+
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,6 @@ export class AppComponent {
   constructor(
     private deathValleyService: DeathValleyService
   ) {
-    console.log(`I got it: ${this.deathValleyService}`)
+    console.log(`I got it: ${this.deathValleyService}`);
   }
 }

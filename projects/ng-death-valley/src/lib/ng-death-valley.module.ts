@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
+
 
 @NgModule({
-  imports: [
-  ],
-  declarations: [],
-  exports: []
+    imports: [],
+    declarations: [],
+    exports: []
 })
-export class NgDeathValleyModule { }
+export class NgDeathValleyModule {
+}
