@@ -1,0 +1,25 @@
+image: node:latest
+
+before_script:
+- npm install
+
+cache:
+  paths:
+  - node_modules/
+
+#stages:
+#- test
+
+test:
+- npm test
+- npm run lint
+
+#publish:
+#  stage: deploy
+#  only:
+#  - tags
+#  - triggers
+#  script:
+#  - npm run build
+#  - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+#  - npm publish
