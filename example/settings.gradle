@@ -1,0 +1,4 @@
+
+rootProject.name = 'death-valley-example'
+include 'ui','server'
+

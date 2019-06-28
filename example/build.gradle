@@ -1,0 +1,19 @@
+
+/*
+ */
+
+subprojects {
+    version = projectVersion
+    group = projectGroup
+}
+
+description 'Demo application'
+defaultTasks 'build'
+
+task build(dependsOn: [
+        ':ui:npmRunBuild',
+        ':server:build'])
+
+
+tasks.getByPath(':server:build').mustRunAfter(':ui:npmRunBuild')
+
