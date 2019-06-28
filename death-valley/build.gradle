@@ -12,11 +12,6 @@ group = 'us.m410.deathvalley'
 sourceCompatibility = 1.8
 defaultTasks 'build'
 description 'Death Valley'
-idea.module.inheritOutputDirs = false
-idea.module.outputDir = sourceSets.main.output.classesDir
-idea.module.testOutputDir = sourceSets.test.output.classesDir
-sourceSets.main.output.classesDir = new File(buildDir, "classes/main")
-sourceSets.test.output.classesDir = new File(buildDir, "classes/test")
 
 
 repositories {

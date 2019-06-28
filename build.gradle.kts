@@ -4,3 +4,16 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds/
  */
+
+
+defaultTasks("build")
+
+tasks {
+    register("build") {
+        dependsOn(":death-valley:build")
+    }
+
+    register("clean") {
+        dependsOn(":death-valley:clean")
+    }
+}

@@ -18,11 +18,6 @@ apply plugin: 'io.spring.dependency-management'
 group = 'us.m410.deathvalley.example'
 version = '0.1.0-SNAPSHOT'
 sourceCompatibility = 1.8
-idea.module.inheritOutputDirs = false
-idea.module.outputDir = sourceSets.main.output.classesDir
-idea.module.testOutputDir = sourceSets.test.output.classesDir
-sourceSets.main.output.classesDir = new File(buildDir, "classes/main")
-sourceSets.test.output.classesDir = new File(buildDir, "classes/test")
 
 repositories {
 	mavenCentral()

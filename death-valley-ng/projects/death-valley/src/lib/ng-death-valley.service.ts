@@ -31,8 +31,10 @@ export class BeanConstraintBuilder {
         this.data.subscribe((entity: EntityConstraints) => {
             entity.fields.filter(fieldConstraint => fieldConstraint.constraints.length > 0)
                 .forEach(fieldConstraint => this.applyConstraint(form, fieldConstraint));
-
             form.updateValueAndValidity();
+        }, (error: any) => {
+            // todo??
+            console.error('error applying constraints', error);
         });
     }
 
@@ -42,13 +44,14 @@ export class BeanConstraintBuilder {
                 this.constraintFactories.find(f => f.name === cnstrnt.name).make(cnstrnt)
             ));
         } else {
-            console.log('WARN: adding validation without property: ' + fieldConstraint.name);
-            // or throw exception
-            form.addControl(fieldConstraint.name, new FormControl('', {
-                validators: fieldConstraint.constraints.map(cnstrnt =>
-                    this.constraintFactories.find(f => f.name === cnstrnt.name).make(cnstrnt)
-                )
-            }));
+            console.warn('WARN: adding validation without property: ' + fieldConstraint.name);
+
+            // todo disabled properties show up here
+            // form.addControl(fieldConstraint.name, new FormControl('', {
+            //   validators: fieldConstraint.constraints.map(cnstrnt =>
+            //     this.constraintFactories.find(f => f.name === cnstrnt.name).make(cnstrnt)
+            //   )
+            // }));
         }
     }
 }
@@ -91,5 +94,4 @@ export interface FormControlConstraintFactory {
 
     make(constraint: Constraint): (fc: AbstractControl) => { [key: string]: any };
 }
-
 

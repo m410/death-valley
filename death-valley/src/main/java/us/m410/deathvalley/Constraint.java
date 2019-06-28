@@ -1,5 +1,6 @@
 package us.m410.deathvalley;
 
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.Objects;
@@ -85,9 +86,14 @@ public final class Constraint implements Comparable<Constraint> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Constraint that = (Constraint) o;
+
         return Objects.equals(name, that.name);
     }
 

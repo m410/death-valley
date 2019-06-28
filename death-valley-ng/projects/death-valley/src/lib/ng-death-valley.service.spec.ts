@@ -1,25 +1,24 @@
 import {inject, TestBed} from '@angular/core/testing';
 
-import {DeathValleyService, EntityConstraints, FieldConstraints} from './ng-death-valley.service';
+import {DeathValleyService, EntityConstraints, FieldConstraints} from './death-valley.service';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {of} from 'rxjs';
-
+import {asapScheduler, scheduled} from 'rxjs';
 
 function makeResponse() {
-    return of({
+    return scheduled([{
         className: 'com.some.Clazz',
         fields: [{
             name: 'name',
             constraints: [{name: 'NotBlank', message: 'Cannot be blank'}]
         }]
-    } as EntityConstraints);
+    } as EntityConstraints], asapScheduler);
 }
 
 describe('DeathValleyService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
-                DeathValleyService,
+                BeanValidatorService,
                 FormBuilder
             ]
         });

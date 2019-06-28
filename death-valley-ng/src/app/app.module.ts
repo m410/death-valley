@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {DeathValleyService} from 'ng-death-valley';
+import {DeathValleyService} from 'death-valley';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({

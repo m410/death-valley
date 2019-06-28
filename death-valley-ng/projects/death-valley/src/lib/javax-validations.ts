@@ -1,6 +1,6 @@
 import {AbstractControl} from '@angular/forms';
 import moment from 'moment-es6';
-import {Constraint, FormControlConstraintFactory} from './ng-death-valley.service';
+import {Constraint, FormControlConstraintFactory} from './death-valley.service';
 
 
 export class NotNullConstraint implements FormControlConstraintFactory {
@@ -97,7 +97,7 @@ export class NegativeConstraint implements FormControlConstraintFactory {
 
     make(constraint: Constraint) {
         return (ctl: AbstractControl) => {
-            const bad = 0 >= ctl.value;
+            const bad = 0 < ctl.value;
             return bad ? {negative: {message: constraint.message}} : null;
         };
     }
@@ -108,7 +108,7 @@ export class NegativeOrZeroConstraint implements FormControlConstraintFactory {
 
     make(constraint: Constraint) {
         return (ctl: AbstractControl) => {
-            const bad = 0 > ctl.value;
+            const bad = 0 <= ctl.value;
             return bad ? {negativeOrZero: {message: constraint.message}} : null;
         };
     }
@@ -119,7 +119,7 @@ export class PositiveConstraint implements FormControlConstraintFactory {
 
     make(constraint: Constraint) {
         return (ctl: AbstractControl) => {
-            const bad = 0 <= ctl.value;
+            const bad = 0 > ctl.value;
             return bad ? {positive: {message: constraint.message}} : null;
         };
     }
@@ -130,7 +130,7 @@ export class PositiveOrZeroConstraint implements FormControlConstraintFactory {
 
     make(constraint: Constraint) {
         return (ctl: AbstractControl) => {
-            const bad = 0 < ctl.value;
+            const bad = 0 >= ctl.value;
             return bad ? {positiveOrZero: {message: constraint.message}} : null;
         };
     }
@@ -141,9 +141,7 @@ export class SizeConstraint implements FormControlConstraintFactory {
 
     make(constraint: Constraint) {
         return (ctl: AbstractControl) => {
-            const good = ctl.value == null ||
-                (ctl.value.toString().length > constraint.min &&
-                    ctl.value.toString().length < constraint.max);
+            const good = ctl.value == null || (ctl.value.toString().length >= constraint.min && ctl.value.toString().length <= constraint.max);
             return !good ? {size: {message: constraint.message}} : null;
         };
     }
@@ -277,7 +275,7 @@ export class EmailConstraint implements FormControlConstraintFactory {
 
     make(constraint: Constraint) {
         return (ctl: AbstractControl) => {
-            const bad = this.regEx.test(ctl.value.toString());
+            const bad = ctl.value == null || this.regEx.test(ctl.value.toString());
             return !bad ? {email: {message: constraint.message}} : null;
         };
     }

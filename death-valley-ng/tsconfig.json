@@ -17,11 +17,11 @@
       "dom"
     ],
     "paths": {
-      "ng-death-valley": [
-        "dist/ng-death-valley"
+      "death-valley": [
+        "dist/death-valley"
       ],
-      "ng-death-valley/*": [
-        "dist/ng-death-valley/*"
+      "death-valley/*": [
+        "dist/death-valley/*"
       ]
     }
   }

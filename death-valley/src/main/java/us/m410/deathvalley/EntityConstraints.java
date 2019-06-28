@@ -4,6 +4,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
+
 public final class EntityConstraints implements Comparable<EntityConstraints> {
     private final String className;
     private final Set<FieldConstraints> fields = new TreeSet<>();
@@ -31,8 +32,12 @@ public final class EntityConstraints implements Comparable<EntityConstraints> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         EntityConstraints that = (EntityConstraints) o;
         return Objects.equals(className, that.className);
     }

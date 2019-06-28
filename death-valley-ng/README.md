@@ -1,10 +1,10 @@
-# ng-death-valley
+# death-valley
 
 Angular form validation for javax.validations
 
 Add to project:
 ```
-> npm install ng-death-valley
+> npm install death-valley
 ```
 
 add the service:

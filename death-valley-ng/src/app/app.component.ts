@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {DeathValleyService} from 'ng-death-valley';
+import {DeathValleyService} from 'death-valley';
 
 
 @Component({

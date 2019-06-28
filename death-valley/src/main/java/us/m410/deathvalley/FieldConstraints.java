@@ -42,11 +42,15 @@ public final class FieldConstraints implements Comparable<FieldConstraints> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         FieldConstraints fieldInfo = (FieldConstraints) o;
-        return Objects.equals(name, fieldInfo.name) &&
-                Objects.equals(constraints, fieldInfo.constraints);
+        return Objects.equals(name, fieldInfo.name)
+               && Objects.equals(constraints, fieldInfo.constraints);
     }
 
     @Override
