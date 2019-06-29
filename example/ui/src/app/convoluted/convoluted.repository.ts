@@ -58,4 +58,5 @@ export class ConvolutedRepository {
     }
 
     return this.http.get<Convoluted[]>('/api/convoluted?domains', {params: getParams});
+  }
 }

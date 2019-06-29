@@ -8,11 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Getter
 @Setter
@@ -34,4 +30,13 @@ public class Convoluted {
     @Min(value = 1, message = "Must be more than one")
     private Integer largeNumber;
 
+    @NotNull
+    @Column(nullable = false)
+    private Status status;
+
+    public enum Status {
+        Open,
+        Closed,
+        Inbetween
+    }
 }

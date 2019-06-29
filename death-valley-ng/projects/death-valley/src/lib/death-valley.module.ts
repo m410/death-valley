@@ -6,5 +6,5 @@ import {NgModule} from '@angular/core';
     declarations: [],
     exports: []
 })
-export class NgDeathValleyModule {
+export class DeathValleyModule {
 }

@@ -18,7 +18,7 @@ describe('DeathValleyService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
-                BeanValidatorService,
+                DeathValleyService,
                 FormBuilder
             ]
         });
