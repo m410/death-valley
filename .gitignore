@@ -14,10 +14,14 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 #
 *.iml
+.idea
 .DS_Store
 
 */build
 */dist
 */node_modules
 
-
+example/server/build
+example/ui/dist
+example/ui/node_modules
+example/server/src/main/resources/static/
