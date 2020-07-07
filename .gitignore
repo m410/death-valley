@@ -22,6 +22,9 @@ gradle-app.setting
 */node_modules
 
 example/server/build
+example/server/out
 example/ui/dist
 example/ui/node_modules
 example/server/src/main/resources/static/
+
+tmp

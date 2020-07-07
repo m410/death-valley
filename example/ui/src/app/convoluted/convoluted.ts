@@ -1,11 +1,17 @@
 
 
-export class Convoluted {
-  id: number;
-  name: string;
+export interface Convoluted {
+  id: number ;
+  name: string ;
+  smallNumber: number ;
+  largerNumber: number ;
+  status: Status ;
+  date: Date ;
+  email: string ;
+}
 
-  constructor(data: any = {}) {
-    this.id = data['id'] ? data['id'] : null;
-    this.name = data['name'] ? data['name'] : null;
-  }
+export enum Status {
+  Open,
+  Closed,
+  Inbetween
 }

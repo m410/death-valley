@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -28,11 +29,28 @@ public class Convoluted {
 
     @Max(value = 10, message = "Can't be greater than 10")
     @Min(value = 1, message = "Must be more than one")
-    private Integer largeNumber;
+    private Integer smallNumber;
+
+    @Positive
+    @NotNull
+    @Column(nullable = false)
+    private Integer largerNumber;
 
     @NotNull
     @Column(nullable = false)
     private Status status;
+
+    @Past
+    @NotNull
+    @Column(nullable = false)
+    private LocalDate date;
+
+    @Email
+    @Size(min = 3, max = 255)
+    @NotBlank
+    @Column(nullable = false)
+    private String email;
+
 
     public enum Status {
         Open,

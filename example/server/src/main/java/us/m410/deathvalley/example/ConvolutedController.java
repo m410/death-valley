@@ -17,47 +17,47 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("api/convoluted")
-public final class ConvolutedController {
+final class ConvolutedController {
     private final ConvolutedRepository convolutedRepository;
     private final ValidationInfoService validationInfoService;
 
-    public ConvolutedController(ConvolutedRepository convolutedRepository, ValidationInfoService validationInfoService) {
+    ConvolutedController(ConvolutedRepository convolutedRepository, ValidationInfoService validationInfoService) {
         this.convolutedRepository = convolutedRepository;
         this.validationInfoService = validationInfoService;
     }
 
     @GetMapping
-    public Page<Convoluted> list(Pageable page) {
+    Page<Convoluted> list(Pageable page) {
         return convolutedRepository.findAll(page);
     }
 
     @GetMapping(params = "validation")
-    public EntityConstraints validation() {
+    EntityConstraints validation() {
         return validationInfoService.forClass(Convoluted.class);
     }
 
     @GetMapping(params = "statuses")
-    public Convoluted.Status[] statuses() {
+    Convoluted.Status[] statuses() {
         return Convoluted.Status.values();
     }
 
     @PostMapping
-    public Convoluted create(@Valid @RequestBody Convoluted c) {
+    Convoluted create(@Valid @RequestBody Convoluted c) {
         return convolutedRepository.save(c);
     }
 
     @GetMapping("{id}")
-    public Convoluted read(@PathVariable Long id) {
+    Convoluted read(@PathVariable Long id) {
         return convolutedRepository.findById(id).orElseThrow(() -> new RuntimeException("No id:" + id));
     }
 
     @PutMapping("{id}")
-    public Convoluted update(@PathVariable Long id, @Valid @RequestBody Convoluted c) {
+    Convoluted update(@PathVariable Long id, @Valid @RequestBody Convoluted c) {
         return convolutedRepository.save(c);
     }
 
     @DeleteMapping("{id}")
-    public void delete(@PathVariable Long id) {
+    void delete(@PathVariable Long id) {
         convolutedRepository.deleteById(id);
     }
 }
