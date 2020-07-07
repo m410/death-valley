@@ -141,7 +141,8 @@ export class SizeConstraint implements FormControlConstraintFactory {
 
     make(constraint: Constraint) {
         return (ctl: AbstractControl) => {
-            const good = ctl.value == null || (ctl.value.toString().length >= constraint.min && ctl.value.toString().length <= constraint.max);
+            const good = ctl.value == null ||
+                (ctl.value.toString().length >= constraint.min && ctl.value.toString().length <= constraint.max);
             return !good ? {size: {message: constraint.message}} : null;
         };
     }

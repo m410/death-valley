@@ -12,11 +12,8 @@ node {
 defaultTasks("build")
 
 tasks {
+
   register<NpmTask>("build") {
     setArgs(listOf("run-script", "build"))
-  }
-
-  register<Task>("clean") {
-
   }
 }
