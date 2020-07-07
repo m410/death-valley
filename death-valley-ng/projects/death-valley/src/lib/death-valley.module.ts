@@ -3,9 +3,11 @@ import {DeathValleyService} from './death-valley.service';
 
 
 @NgModule({
-    imports: [],
-    declarations: [],
-    exports: []
+  imports: [],
+  declarations: [],
+  providers: [
+    DeathValleyService
+  ]
 })
 export class DeathValleyModule {
 }

@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 
 import {Observable} from 'rxjs';
 import {Convoluted} from './convoluted';
+import {EntityConstraints, Page} from "death-valley";
 
 @Injectable()
 export class ConvolutedRepository {
@@ -11,16 +12,15 @@ export class ConvolutedRepository {
   constructor(private http: HttpClient) {
   }
 
-
-  // page(start: number = 0, size: number = 32, sort: string = 'name', order: string = 'desc'): Observable<Page<Convoluted>> {
-  //   return this.http.get<Page<Convoluted>>('/api/convoluted', {
-  //     params: new HttpParams()
-  //       .set('start', start.toString())
-  //       .set('size', size.toString())
-  //       .set('sort', sort)
-  //       .set('order', order)
-  //   });
-  // }
+  page(start: number = 0, size: number = 32, sort: string = 'name', order: string = 'desc'): Observable<Page<Convoluted>> {
+    return this.http.get<Page<Convoluted>>('/api/convoluted', {
+      params: new HttpParams()
+        .set('start', start.toString())
+        .set('size', size.toString())
+        .set('sort', sort)
+        .set('order', order)
+    });
+  }
 
   get(id: number): Observable<Convoluted> {
     return this.http.get<Convoluted>(`/api/convoluted/${id}`);
@@ -58,5 +58,9 @@ export class ConvolutedRepository {
     }
 
     return this.http.get<Convoluted[]>('/api/convoluted?domains', {params: getParams});
+  }
+
+  validations(): Observable<EntityConstraints> {
+    return this.http.get<EntityConstraints>('/api/convoluted?validation');
   }
 }

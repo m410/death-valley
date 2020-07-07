@@ -1,6 +1,4 @@
 
-/*
- */
 val projectVersion:String by project
 val projectGroup:String by project
 

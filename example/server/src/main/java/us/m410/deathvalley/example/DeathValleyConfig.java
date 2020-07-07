@@ -6,10 +6,10 @@ import us.m410.deathvalley.ValidationInfoService;
 import us.m410.deathvalley.ValidationInfoServiceImpl;
 
 @Configuration
-public class DeathValleyConfig {
+class DeathValleyConfig {
 
     @Bean
-    public ValidationInfoService deathValleyService() {
+    ValidationInfoService deathValleyService() {
         return new ValidationInfoServiceImpl();
     }
 }

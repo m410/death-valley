@@ -1,22 +1,22 @@
-import com.moowork.gradle.node.npm.NpmTask
+import com.github.gradle.node.npm.task.NpmTask
 
 plugins {
-  id("com.github.node-gradle.node") version "2.2.4"
+  id("com.github.node-gradle.node") version "3.1.0"
 }
 
 node {
-  version = "10.21.0"
-  download = true
+  version.set("14.17.3")
+  download.set(true)
 }
 
 defaultTasks("build")
 
 tasks {
   register<NpmTask>("build") {
-    setArgs(listOf("run-script", "build"))
+    args.set(listOf("run", "build"))
   }
 
-  register<Task>("clean") {
-
+  register<NpmTask>("package") {
+    args.set(listOf("run", "package"))
   }
 }

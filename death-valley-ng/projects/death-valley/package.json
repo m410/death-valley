@@ -16,8 +16,8 @@
     "url" : "git@gitlab.com:m410/death-valley.git"
   },
   "peerDependencies": {
+    "luxon": "^2.0.1",
     "@angular/common": "^8.0.0-rc.0 || ^8.0.0",
-    "@angular/core": "^8.0.0-rc.0 || ^8.0.0",
-    "moment-es6": "^1.0.0"
+    "@angular/core": "^8.0.0-rc.0 || ^8.0.0"
   }
 }

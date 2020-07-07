@@ -4,18 +4,20 @@ tasks {
   register("build") {
     dependsOn(
       ":death-valley:build",
-      ":death-valley-ng:build"
+      ":death-valley-ng:build",
+      ":example:ui:build",
+      ":example:ui:build"
     )
   }
 
   register("clean") {
     dependsOn(
       ":death-valley:clean",
-      ":death-valley-ng:clean"
+      ":example:server:clean"
     )
   }
 
   register("runExample") {
-    dependsOn("build", ":example:server:bootRun")
+    dependsOn(":example:server:bootRun")
   }
 }

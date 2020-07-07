@@ -6,6 +6,9 @@ import { ListComponent } from './convoluted/list/list.component';
 import { FormComponent } from './convoluted/form/form.component';
 import { DetailComponent } from './convoluted/detail/detail.component';
 import {ConvolutedRepository} from './convoluted/convoluted.repository';
+import {AppRoutingModule} from './app.routing';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DeathValleyModule} from 'death-valley';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,11 @@ import {ConvolutedRepository} from './convoluted/convoluted.repository';
     DetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    DeathValleyModule
   ],
   providers: [
     ConvolutedRepository

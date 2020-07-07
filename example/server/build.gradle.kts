@@ -1,7 +1,7 @@
 
 plugins {
-  id("org.springframework.boot") version "2.3.1.RELEASE"
-  id("io.spring.dependency-management") version "1.0.9.RELEASE"
+  id("org.springframework.boot") version "2.5.3"
+  id("io.spring.dependency-management") version "1.0.11.RELEASE"
   id("java")
 }
 
@@ -12,6 +12,7 @@ repositories {
   mavenCentral()
   mavenLocal()
 }
+
 
 dependencies {
   implementation("org.springframework.boot:spring-boot-starter-web")
@@ -36,12 +37,11 @@ dependencies {
 }
 
 java {
-  sourceCompatibility = JavaVersion.VERSION_1_8
+  sourceCompatibility = JavaVersion.VERSION_15
 }
 
 tasks {
   named<Test>("test") {
-    jvmArgs( "--illegal-access=deny", "--add-opens", "java.base/java.lang=ALL-UNNAMED")
     useJUnitPlatform()
   }
 }

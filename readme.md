@@ -1,7 +1,7 @@
 # Death Valley
 Why death valley?  Because it DRY.
 
-This is a...
+This is a sample project.
 
 ## Installing
 ### Java
@@ -15,3 +15,8 @@ This is a...
  - use in your forms
  
 ## Running the examples
+Once you clone the project, run:
+```bash
+./gradlew runExample
+```
+then open a browser to http://localhost:8080/

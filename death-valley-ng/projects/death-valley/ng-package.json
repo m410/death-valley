@@ -3,6 +3,9 @@
   "dest": "../../dist/death-valley",
   "deleteDestPath": false,
   "lib": {
-    "entryFile": "src/public_api.ts"
+    "entryFile": "src/index.ts",
+    "umdModuleIds": {
+      "luxon": "luxon"
+    }
   }
 }
