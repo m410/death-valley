@@ -23,11 +23,11 @@ dependencies {
   implementation("javax.xml.bind:jaxb-api:2.3.0")
   implementation("com.sun.xml.bind:jaxb-core:2.3.0")
 
-  compileOnly("org.projectlombok:lombok:1.18.12")
-  annotationProcessor("org.projectlombok:lombok:1.18.12")
+  compileOnly("org.projectlombok:lombok:1.18.20")
+  annotationProcessor("org.projectlombok:lombok:1.18.20")
 
-  testCompileOnly("org.projectlombok:lombok:1.18.12")
-  testAnnotationProcessor("org.projectlombok:lombok:1.18.12")
+  testCompileOnly("org.projectlombok:lombok:1.18.20")
+  testAnnotationProcessor("org.projectlombok:lombok:1.18.20")
 
   developmentOnly("org.springframework.boot:spring-boot-devtools")
 
