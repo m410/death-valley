@@ -1,10 +1,8 @@
 
 include(
         "death-valley" ,
-        "death-valley-ng",
-        "example",
-        "example:ui",
-        "example:server"
+        "java:death-valley",
+        "java:demo-server"
 )
 
 rootProject.name = "death-valley"
