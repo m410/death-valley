@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup} from '@angular/forms';
+import {AbstractControl, FormGroup} from '@angular/forms';
 
 import {Observable} from 'rxjs';
 import {JAVAX_CONSTRAINT_FACTORIES} from './javax-validations';
