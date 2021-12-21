@@ -17,7 +17,7 @@ repositories {
 dependencies {
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-  implementation(project(":death-valley"))
+  implementation(project(":java:death-valley"))
   implementation("com.h2database:h2:1.4.197")
 
   implementation("javax.xml.bind:jaxb-api:2.3.0")

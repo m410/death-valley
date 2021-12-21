@@ -3,7 +3,7 @@ defaultTasks("build")
 tasks {
   register("build") {
     dependsOn(
-      ":death-valley:build",
+      ":angular:build",
       ":java:death-valley:build",
       ":java:demo-server:build",
     )
@@ -17,7 +17,7 @@ tasks {
   }
 
   register("runExample") {
-    dependsOn(":death-valley:ruh")
+    dependsOn(":angular:run")
     dependsOn(":java:demo-server:bootRun")
   }
 }

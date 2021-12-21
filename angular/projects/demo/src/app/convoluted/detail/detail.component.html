@@ -1,0 +1,19 @@
+<h1>Convoluted Details</h1>
+<dl class="row" *ngIf="convoluted | async as c">
+  <dt class="col-sm-3">ID</dt>
+  <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+  <dt class="col-sm-3">id</dt>
+  <dd class="col-sm-9">{{ c.id }}</dd>
+  <dt class="col-sm-3">name</dt>
+  <dd class="col-sm-9">{{ c.name }}</dd>
+  <dt class="col-sm-3">smallNumber</dt>
+  <dd class="col-sm-9">{{ c.smallNumber }}</dd>
+  <dt class="col-sm-3">largerNumber</dt>
+  <dd class="col-sm-9">{{ c.largerNumber }}</dd>
+  <dt class="col-sm-3">status</dt>
+  <dd class="col-sm-9">{{ c.status }}</dd>
+  <dt class="col-sm-3">date</dt>
+  <dd class="col-sm-9">{{ c.date }}</dd>
+  <dt class="col-sm-3">email</dt>
+  <dd class="col-sm-9">{{ c.email }}</dd>
+</dl>

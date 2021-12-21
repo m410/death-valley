@@ -1,0 +1,39 @@
+<h1>Save or Create Convoluted</h1>
+<fieldset>
+  <legend>Convoluted example</legend>
+  <form novalidate (ngSubmit)="submit()" [formGroup]="form">
+    <div class="form-group">
+      <label for="name">name</label>
+      <input type="text" id="name" class="form-control" formControlName="name" />
+      <div class="invalid-feedback">Please provide a valid city.</div>
+    </div>
+    <div class="form-group">
+      <label for="smallNumber">smallNumber</label>
+      <input type="number" id="smallNumber" class="form-control" formControlName="smallNumber" />
+      <span class="invalid-feedback" *ngIf="name.invalid && (name.dirty || name.touched)">Invalid.</span>
+    </div>
+    <div class="form-group">
+      <label for="largerNumber">largerNumber</label>
+      <input type="number" id="largerNumber" class="form-control" formControlName="largerNumber" />
+      <span class="invalid-feedback" *ngIf="largerNumber.invalid && (largerNumber.dirty || largerNumber.touched)"
+        >Invalid.</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="status">status</label>
+      <input type="text" id="status" class="form-control" formControlName="status" />
+      <span class="invalid-feedback" *ngIf="status.invalid && (status.dirty || status.touched)">Invalid.</span>
+    </div>
+    <div class="form-group">
+      <label for="date">date</label>
+      <input type="datetime-local" id="date" class="form-control" formControlName="date" />
+      <span class="invalid-feedback" *ngIf="date.invalid && (date.dirty || date.touched)">Invalid.</span>
+    </div>
+    <div class="form-group">
+      <label for="email">email</label>
+      <input type="email" id="email" class="form-control" formControlName="email" />
+      <span class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">Invalid.</span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</fieldset>
