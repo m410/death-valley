@@ -1,13 +1,10 @@
 package us.m410.deathvalley.example;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 
@@ -38,6 +35,7 @@ public class Convoluted {
 
     @NotNull
     @Column(nullable = false)
+    @Enumerated(EnumType.ORDINAL)
     private Status status;
 
     @Past
@@ -55,6 +53,11 @@ public class Convoluted {
     public enum Status {
         Open,
         Closed,
-        Inbetween
+        Inbetween;
+
+      @JsonValue
+      public int toValue() {
+        return ordinal();
+      }
     }
 }

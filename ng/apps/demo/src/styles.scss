@@ -1,0 +1,11 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons';
+
+
+input.ng-invalid.ng-touched {
+  color: var(--bs-red);
+  border: 1px dotted var(--bs-red);
+  + span {
+    display: block;
+  }
+}

@@ -1,6 +1,6 @@
 
 include(
-        "angular" ,
+        "ng" ,
         "java:death-valley",
         "java:demo-server"
 )

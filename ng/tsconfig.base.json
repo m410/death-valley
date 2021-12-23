@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@death-valley/paging": ["libs/paging/src/index.ts"],
+      "@death-valley/validation": ["libs/validation/src/index.ts"],
+      "@m410/death-valley": ["libs/death-valley/src/index.ts"],
+      "@m410/paging": ["libs/paging/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

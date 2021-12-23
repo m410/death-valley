@@ -1,0 +1,43 @@
+<h1>Save or Create Convoluted</h1>
+<div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> Something went wrong <code>{{error | json}}</code>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<fieldset>
+  <legend>Convoluted example</legend>
+  <form novalidate (ngSubmit)="submit()" [formGroup]="form">
+    <div class="form-group">
+      <label class="mt-2" for="name">Name</label>
+      <input type="text" id="name" class="form-control" formControlName="name" />
+      <span class="invalid-feedback">Please provide a valid name.</span>
+    </div>
+    <div class="form-group">
+      <label class="mt-2" for="smallNumber">Small Number</label>
+      <input type="number" id="smallNumber" class="form-control" formControlName="smallNumber" />
+      <span class="invalid-feedback">Invalid number.</span>
+    </div>
+    <div class="form-group">
+      <label class="mt-2" for="largerNumber">Larger Number</label>
+      <input type="number" id="largerNumber" class="form-control" formControlName="largerNumber" />
+      <span class="invalid-feedback">Invalid number.</span>
+    </div>
+    <div class="form-group">
+      <label class="mt-2" for="status">Status</label>
+      <select name="status" id="status" class="form-select" aria-label="Default select example" formControlName="status">
+        <option *ngFor="let key of statusOptions" [value]="key" [label]="statusEnum[key]"></option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="mt-2" for="date">Date</label>
+      <input type="date" id="date" class="form-control" formControlName="date" />
+      <span class="invalid-feedback">Invalid.</span>
+    </div>
+    <div class="form-group">
+      <label class="mt-2" for="email">Email</label>
+      <input type="email" id="email" class="form-control" formControlName="email" />
+      <span class="invalid-feedback">Invalid.</span>
+    </div>
+    <button type="submit" class="btn btn-primary my-3" [disabled]="form.invalid">Submit</button>
+    <a routerLink="/convoluted" class="btn btn-link m-3">Cancel</a>
+  </form>
+</fieldset>

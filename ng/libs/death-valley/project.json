@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/death-valley",
+  "sourceRoot": "libs/death-valley/src",
+  "prefix": "dv",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/death-valley"],
+      "options": {
+        "project": "libs/death-valley/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/death-valley/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/death-valley/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/death-valley"],
+      "options": {
+        "jestConfig": "libs/death-valley/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/death-valley/src/**/*.ts",
+          "libs/death-valley/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

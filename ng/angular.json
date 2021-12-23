@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "death-valley": "libs/death-valley",
+    "demo": "apps/demo",
+    "demo-e2e": "apps/demo-e2e",
+    "paging": "libs/paging"
+  }
+}

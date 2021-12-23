@@ -1,0 +1,6 @@
+
+logging:
+  level:
+    us.m410.deathvalley: debug
+    root: info
+

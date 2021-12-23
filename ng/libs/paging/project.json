@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/paging",
+  "sourceRoot": "libs/paging/src",
+  "prefix": "dv",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/paging"],
+      "options": {
+        "project": "libs/paging/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/paging/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/paging/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/paging"],
+      "options": {
+        "jestConfig": "libs/paging/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/paging/src/**/*.ts",
+          "libs/paging/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
